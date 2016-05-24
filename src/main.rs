@@ -58,17 +58,22 @@ fn main() {
     println!("{:?}", list);
 }
 
-#[test]
-fn test_push_pop_front() {
-    let mut list = LinkedList::new();
-    list.push_front(1);
-    list.push_front(2);
-    assert_eq!(list.pop_front(), Some(2));
-    assert_eq!(list.pop_front(), Some(1));
-}
+#[cfg(test)]
+mod tests {
+    use super::*;
 
-#[test]
-fn test_pop_front_empty_list() {
-    let mut list: LinkedList<i32> = LinkedList::new();
-    assert_eq!(list.pop_front(), None);
+    #[test]
+    fn test_push_pop_front() {
+        let mut list = LinkedList::new();
+        list.push_front(1);
+        list.push_front(2);
+        assert_eq!(list.pop_front(), Some(2));
+        assert_eq!(list.pop_front(), Some(1));
+    }
+
+    #[test]
+    fn test_pop_front_empty_list() {
+        let mut list: LinkedList<i32> = LinkedList::new();
+        assert_eq!(list.pop_front(), None);
+    }
 }
